@@ -1,0 +1,49 @@
+
+//Se arunca un zar si dorim sa facem un algoritm probabilistic care sa afiseze o fata de a lui(sanse 1/6)
+rand2()
+{
+    uniform x from[0..1];  //daca s-a nimerit fata x atunci afisam 1;
+    return x;
+}
+Zar()
+{
+    a=rand2(); //aplicam 3 random-uri pentru ca la final sa fonstruim un  numar in baza 2 si scoatem cazurile in care da 7 si 8 ; astfel vom avea cazuri de la 1 la 6.
+    b=rand2();
+    c=rand2();
+    n=4*c+2*b+c;
+    if(n>5)
+    {
+        return Zar();
+    }
+    else 
+    return n;
+
+}
+print(Zar());
+
+
+randp()
+{
+    n=10;                            //acesta este un algoritm probabilistic in care p=7/10 (am ales o probabilitate aleatoare)
+    m=7;                              
+    choose p from [0..n];
+    if(p<m)
+     return 1;
+     else 
+     return 0;
+}
+
+randpcorect()
+{
+    a=randp();
+    b=randp();                         //aici dorim sa corectam sansele astfel incat sa ajunga la 0,5;
+    if(a!=b)
+    return a;
+    else
+    return randpcorect();                //aici apelam recursiv functia in cazul in care nu da oke ; pentru a corecta
+}
+
+suma=0;
+for(i=1;i<=1000;i++)
+suma=suma+randpcorect();                    //pentru 1000 val obtinem in jur de 250 deci se aproprie cu cat val sunt mai mari;
+print(suma);

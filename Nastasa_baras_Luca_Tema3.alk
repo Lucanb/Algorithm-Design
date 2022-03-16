@@ -1,0 +1,29 @@
+//Scrieti un algoritm care sa rezolva problema SSD3 (Problema gasirii unei submutlimi de suma data)
+//Poate fi determinist sau nedeterminist (preferabil sa incercati sa implementati unul nedeterminist)
+
+//REZOLVARE:
+
+// in:Suma S si Multimea de numere a,unde a[k] este un numar.
+// out:Succes daca exista multime B cu proprietatea ca Sum(b[k])=S sau "fail" daca nu am gasit ; k=1,card(B).
+a={1,4,3,7,8,2,9,10,234};
+
+SSD3(a)
+{
+    b={};
+    Sum=0;
+    S=10;// are valoarea pusa si in settings
+    choose x from a;
+    Sum=Sum+x;
+    b = b U {x} ;
+    if(Sum > S)
+    print("Failure!");
+    else
+    if(S==Sum)
+   {
+    print(b);
+    print("Succes!");
+   }
+    else
+    SSD3(a\{x});
+}
+print(SSD3(a));
