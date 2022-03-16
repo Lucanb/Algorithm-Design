@@ -1,0 +1,21 @@
+//input:  N and N numbers a[k], k=0..N-1.
+//output: N numbers in increasing order :a[k-1]<a[k]<a[k+1] for all k € [1, N-2].
+
+
+a=[1,3,7,2,5,8,4];
+
+for(i=0;i<=N-2;i++)     // se repeta de 1 ori    si are costul 1 / log N / N
+ for(j=i+1;j<=N-1;j++)  // se repeta de N-1 ori  si are costul 1 / log N / N
+  if(a[i]>a[j])         // se repeta de (N-1)N/2 si are costul 1 / log N / N
+   {
+    c=a[j];             // se repeta de (N-1)N/2 si are costul 1 / log N / N
+    a[j]=a[i];          // se repeta de (N-1)N/2 si are costul 1 / log N / N
+    a[i]=c;             // se repeta de (N-1)N/2 si are costul 1 / log N / N
+   }
+   for(i=1;i<=N-1;i++)
+     print(a[i]);
+     
+     //                   timp                        dimensiunea instantei
+     //uniform    :    (N-1)N/2       ~ N^2                     1
+     //logaritmic :    (N-1)N/2*log N ~ (N^2)log N            log(N)
+     //liniar     :    (N-1)N/2*N     ~ N^3                     N
