@@ -1,0 +1,29 @@
+
+j a c o b i ( a , n )
+@requires n > 0 , n % 2 == 1
+{
+j = 1 ;
+w h i l e ( a != 0 )
+@invariant o l d ( a ) | o l d ( n ) == ( a | n )
+ ∗ j
+{
+w h i l e ( a % 2 == 0 ) // a i s eve n
+@invariant o l d ( a ) | o l d ( n ) == ( a | n )∗ j
+{
+a = a / 2 ;
+i f ( n % 8 == 3 | | n % 8 == 5 ) 
+j = 0− j ;
+}
+swap ( a , n ) ;
+i f ( a % 4 == 3 && n % 4 == 3 )
+ j = 0− j ;
+a = a % n ;
+}
+i f ( n == 1 ) 
+return j ; // gcd == 1
+else 
+return 0 ; // gcd != 1
+}
+a= 58;
+n= 128
+print(jacobi(a,n));
