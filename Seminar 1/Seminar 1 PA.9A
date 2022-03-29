@@ -1,0 +1,11 @@
+//9. Formalizati urmatoarea problema si scrieti un algoritm pentru ea: sa se
+//scrie un natural n ca suma de numere naturale consecutive.
+ //REZOLVARE:
+ //Input  : n
+ //Output : Sequence (a1,....,aj) with the propriety that a[1],...,a[j] are consecutive and Sum(a[1],..a[j])=n
+
+ //(j-1)a1+(j-1)j=n who is j;
+ //so n+1 is j(a1+j-1);
+ //So I need to find 2 numbers(propper divisors) that have the product n+1 (Here I fave factorisation problem but in a less general mode) 
+ //and then I can write the solution ; it will be one of that number -1  as first in the sequence and the rest will be that one incremented.
+ 
