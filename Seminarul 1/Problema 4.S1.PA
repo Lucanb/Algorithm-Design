@@ -1,0 +1,19 @@
+//Seminarul 1 PA - Problema 3.4 rezolvare:
+
+//in: N that is maximum 4 million (N<4000000)
+//out :Sum(a[k]) where a[k] is an even fib[k] with k from 0 to n and a[n]<=N
+
+
+a=1;
+b=2;
+c=b;
+Sum=1;
+while(c<=N)
+{
+     c=a+b;
+     a=b;
+     b=c;
+    if(c%2==1)
+     Sum=Sum+c;
+}
+print(Sum);

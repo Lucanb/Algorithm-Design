@@ -1,0 +1,12 @@
+//Problema 3 - anii anteriori.
+//Problema de mai sus este aceeas, i cu problema ce urmeaza?
+//Input: doua numere naturale a, b ∈ N;
+//Output: “da” si cmmdc(a, b), daca a si b au un cel mai mare divizor comun
+//si “nu” altfel.
+
+//Problema de mai sus
+//Input: doua numere naturele a, b ∈ N cu proprietatea ca a + b ̸= 0;
+//Output: cel mai mare divizor comun al numerelor a, b.
+
+
+//Nu este aceeasi problema deoarece datele de intrare difera.

@@ -1,0 +1,19 @@
+rand2()
+{
+    uniform x from [0..1];
+    return x;
+}
+zar()
+{
+    b1=rand2();
+    b2=rand2();
+    b4=rand2();
+    n=4*b4+2*b2+b1;
+    if(n>5)
+    {
+        return zar();
+    }
+    else
+    return n;
+}
+print(zar());

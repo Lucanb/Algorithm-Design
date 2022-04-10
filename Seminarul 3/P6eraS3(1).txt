@@ -1,0 +1,14 @@
+rand2()
+{
+    uniform x from [0..1];
+    return x;
+}
+NumarRandom(n)
+{
+    suma=0;
+    for(i=1;i<=n;i++)
+      suma=suma+rand2();
+return suma;
+}
+n=100;
+print(NumarRandom(n));

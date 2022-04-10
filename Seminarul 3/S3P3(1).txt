@@ -1,0 +1,8 @@
+sum = 0;
+n=100000;
+for (i = 0 ; i < n ; ++i) 
+{
+uniform x from {0,1};
+sum = sum + x;
+}
+print(sum);

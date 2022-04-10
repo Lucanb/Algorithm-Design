@@ -1,0 +1,5 @@
+//Problema 4 Seminar 1.
+//4. Enunt,at, i problema celor 8 regine. Dat, i exemplu de instant,a a problemei.
+//in: N ~( the dimension of matrix N*N ; N queens definte by (i,j) pair where in a matrix i is the line and j is the column).
+//out: N (i,j) pairs with the propriety that : any 2 pairs [ (k,l) and (m,n) ]
+// k !=m  ; l !=n ;abs(k-m)!=abs(l-n); 1<=i,j,k,l,m<=N.

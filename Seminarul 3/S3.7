@@ -1,0 +1,51 @@
+
+SSD1(S,M)
+{
+    Sum=0;
+  while(Sum<M)
+  {
+      choose x from S;
+      Sum=Sum+x;
+  }
+  if(Sum>M)
+  Sum=Sum-x;
+  return Sum;
+}
+
+SSD2(S,K,M)
+{
+    Sum=0;
+    while(Sum<M)
+    {
+        choose x from S;
+        Sum=Sum+x;
+    }
+    if(Sum>M)
+    Sum=Sum-x;
+    if(Sum>K)
+    return "Succes!";
+    else
+    return "Failure!";
+}
+
+SSD3(S,M)
+{
+    Sum=0;
+    while(Sum<M)
+    {
+        choose x from S;
+        Sum=Sum+x;
+    }
+    if(Sum>M)
+    Sum=Sum-x;
+    if(M==Sum)
+    return "Succes!";
+    else
+    return "Failure!";
+}
+S=[1,7,2,5,3,8,4,6,9];
+M=42;
+K=20;
+print(SSD1(S,M));
+print(SSD2(S,M,K));
+print(SSD3(S,M));

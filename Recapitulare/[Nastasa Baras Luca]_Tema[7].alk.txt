@@ -1,0 +1,66 @@
+
+BKP
+input:N,W,P,wi,pi,c
+output: 1 daca se poate ca un obiect luar de max c ori ;
+sum(wi)<=W
+sum(pi)>=p
+I
+
+Algoritm nedeterminist.
+
+KnapSnack(W,P,N,wi,pii,c)
+{
+    Pt=0;
+    G=0;
+    v[1..n]={0}
+        choose x from [1..n];
+       if(x == 1)
+       {
+          v[x]++;  
+          G=G+wi[x];
+          Pt=Pt+pii[x];
+       }
+    if(G>W)
+      {
+          G=G-wi[i];
+          Pt=Pt-pii[i];
+      }
+   if(Pt>=P)
+     for(i=1;i<=n;i++)
+       if(v[i]>c)
+        {
+         return "Succes!";
+         else
+         return "Failure!";
+         }
+     else
+    return "Failure!";
+}
+
+pii =[1,2,7,3,4,9,5];
+wi = [12,8,2,23,2,6,7];
+print(KnapSnack(30,13,7,wi,pii));
+
+II
+
+Reducere la SSD(Sum set sum);
+
+Ca abordare as putea cu knapSnack dar e cam ciudat
+Sau cu SSD doar ca 2 elemente trb cuplate in vector si s-ar face testul cam ca la SumK
+  
+
+Rezolvare cu SSD: 
+
+sum(pi)=sum(wi)=k (ar da sum(pi)<=k) si sum(wi)>=k
+P=W=S; 
+Astfel am fiecare vector de tipu 0,0,0,.1.000,pi cu 1 pe poz i daca am am ales pi sau wi
+                                 0,0,0,.1.000,wi   Astfel suma de 1 trebuie sa fie mai mica decat c cand adun la final si de sigur wi,pi sa dea k-ul respectiv
+S-un fel de multime;
+
+SSD(S,k)
+{
+    return BsKP   ((S,c),(S,c),k,k);
+}
+
+Conform I si II problema este NP-Completa.
+

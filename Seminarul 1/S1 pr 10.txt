@@ -1,0 +1,21 @@
+//Cautare Binara
+CautareBinara(st,dr,val,v)
+{
+    if(st>dr)
+      return 0;
+      else
+      {
+          m=(st+dr)/2;
+          if(val<v[m])
+           CautareBinara(st,m-1,val,v);
+           else
+           if(val>v[m])
+           CautareBinara(m+1,dr,val,v);
+           else
+           return m;
+      }
+      
+}
+v=[1,5,2,7,3,9,5];
+n=v.size();
+print(CautareBinara(0,n-1,7,v));

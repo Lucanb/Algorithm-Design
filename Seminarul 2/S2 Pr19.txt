@@ -1,0 +1,33 @@
+//19.
+
+Interclasare(st,dr,m,v)
+{
+    i = st;
+    j = m + 1;
+     k = 1;
+    while (i <= m && j <= dr)
+        if (v[i] < v[j])
+            b[k++] = v[i++];
+        else
+            b[k++] = v[j++];
+    while (i <= m)
+        b[k++] = v[i++];
+    while (j <= dr)
+        b[k++] = v[j++];
+    for (i = st; i <= dr; i++)
+        v[i] = b[i-st+1];
+}
+MSort(st,dr,v)
+{
+    if (st < dr)
+    {
+        m = (st + dr) / 2;
+        MSort(st, m,v);
+        MSort(m + 1, dr,v);
+        Interclasare(st, dr, m,v);
+    }
+}
+v=[1,5,2,7,3,9];
+n=v.size();
+MSort(0,n-1,v);
+print(v);

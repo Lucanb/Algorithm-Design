@@ -1,0 +1,18 @@
+f(n) {
+if (n == 0 || n == 1) {
+return n;
+}
+return 5 * f(n - 1) - 6 * f(n - 2);
+}
+//Returneaza 3^n-2^n
+//Inductie trbuie demonstrat ca f(n+1)=3^(n+1)-2^(n+1) Stiind ca f(n)=3^n-2^n
+3(n+1)-2(n+1)=(3-2)()
+
+(3^n-2^n)(3+2)=3^(n+1)-3*2^n+2*3^n-2^(n+1)
+(3^n-1-2^n-1)(3+3)=3^(n)-3*2^(n-1)+3^(n)+3*2^(n-1)
+Le scadem si ramanem cu
+5f(n)-6f(n-1)=3^(n+1)-2^(n+1);//Aici am testat regula
+
+Aici e inductia care ma intereseaza;
+
+Deci am demonstrat ca f(n+1)=5f(n)-6f(n-1) care cf inductiei este 5*(3^n-2^n)-6*(3^(n-1)-2^(n-1)) care in final; dupa calcule da 3^(n+1)-2^(n+1)

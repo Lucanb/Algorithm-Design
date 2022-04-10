@@ -1,0 +1,43 @@
+// Probleme din anii trecuti - 1 PA
+//Input: dou ̆a numere naturele a, b ∈ N cu proprietatea c ̆a a + b ̸= 0;
+//Output: cel mai mare divizor comun al numerelor a, b.
+min(a,b)
+{
+    if(a<b)
+    return a;
+    else
+    return b;
+}
+EuclidScaderi(a,b)
+{
+   if (a==b)
+    return a;
+    else
+    if(a>b)
+    return EuclidScaderi(a-b,b);
+    else
+    return EuclidScaderi(a,b-a);
+}
+EuclidImpartiri(a,b)
+{
+    if (b==0)
+        return a;
+        else
+        return EuclidImpartiri(b,a%b);
+}
+CautareExplicita(a,b)
+{
+    if (a!=b)
+    {for(i=2;i<min(a,b)/2;i++)
+       if(a%i==0 && b%i==0)
+           j=i;
+     return j;
+    }
+    else
+    return a;
+}
+a=16;
+b=20;
+print(EuclidImpartiri(16,20));
+print(EuclidScaderi(16,20));
+print(CautareExplicita(16,20));
