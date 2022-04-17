@@ -1,0 +1,28 @@
+MIS(N,E,k)
+{
+    S= [ 0 | i from [0..N-1] ];
+    index=0;
+    for(i=0;i<N;i++)
+    {
+        choose x from {0,1};
+        if(x==1)
+        S[index++]=i;
+
+    }
+    if(index<k)
+    print (S);
+    failure;
+    for(i=0;i<index-1;i++)
+    for(j=i+1;j<index;j++)
+    if(E[S[i]][S[j]]!=0)
+      failure;
+  success;
+}
+E=[
+    [0,1,1,0,0],
+    [1,0,1,0,0],
+    [1,1,0,0,1],
+    [0,0,0,0,1],
+    [0,0,1,1,0]
+  ];
+  MIS(5,E,2);
