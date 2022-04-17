@@ -1,0 +1,78 @@
+Algoritmul de la Exercitiul 2:
+
+A2:
+//@input: n, v - o permutare a lui [1..n] aleasa uniform
+//@output: max, sum
+max = v[0];
+sum = 0;
+for (i = 1; i < n; ++i) {  // usor modificat
+    if (v[i] > max) {
+        max = v[i];
+        for (j = 0; j < n; ++j) { // bucla for interioara
+            sum = sum + 1;
+        }
+    }
+}
+
+
+Datorita proprietatii algoritmului Fisher-Yates dovedite la Ex. 5,
+algoritmul de la Exercitiul 6 este echivalent cu
+
+A6:
+//@input: n, a[0..n-1], p - o permutare a lui [0..n-1] aleasa uniform
+//@output: max, sum
+min = a[p[0]];
+sum = 0;
+for (i = 1; i < n; ++i) {
+    if (a[p[i]] < min) {
+        min = a[p[i]];
+        for (j = 0; j < n; ++j) { // bucla for interioara
+            sum = sum + 1;
+        }
+    }
+}
+
+Vom arata o proprietate de "echivalenta" intre cei doi algoritmi
+in sensul ca exista o relatie de bisimilaritate intre executiile lor.
+
+O stare pentru A6: σ  : {n, a, p, i, j, min, sum} → Values
+O stare pentru A2: σ' : {n,    v, i, j, max, sum} → Values
+
+Consideram tabloul a fixat, cu elementele distincte doua cate doua.
+Se poate defini o bijectie f intre permutarile lui [0..n-1] si cele ale lui [1..n]
+astfel incat
+
+  a[p[i]] < a[p[j]] ddaca f(p)[i] > f(p)[j]
+
+Un exercitiu util este sa definiti aceasta bijectie.
+Bijectia f stabileste o bijectie intre starile initiale ale lui A6 si cele ale A2
+astfel incat f(p) = v.
+In plus, daca definim
+
+  σ ∼ σ' ddaca
+    σ(n) = σ'(n)
+    σ(i) = σ'(i)
+    σ(j) = σ'(j)
+    σ(sum) = σ'(sum)
+    σ(p[i]+1) = σ'(v[i]) (= σ'(f(p)[i]))
+
+obtinem ca orice executie
+
+  σ₀ ⇒ σ₁ ⇒ σ₂  ⇒ ...
+
+a lui A6 este in corespondenta (bisimilara) cu o executie 
+
+  σ'₀ ⇒ σ'₁ ⇒ σ'₂  ⇒ ...
+
+a lui A2 astfel incat
+
+  σ₀ ∼ σ'₀,  σ₁ ∼ σ'₁,  σ₂ ∼ σ'₂, ....
+
+si reciproc.
+Aceasta corespondenta implica faptul ca analizele pentru cei doi algoritmi
+sunt echivalente.
+
+De notat ca este foarte important de retiunut constrangerea ca elementele
+tabloului a sa fie distincte.
+Daca, de exemplu, luam cazul particular cand toate elementele tabloului sunt
+egale, atunci nu mai avem corespondenta 1-1 intre executii (explicati de ce).
