@@ -1,0 +1,7 @@
+//Input:n (persoane),W[],W(greutatea max a barcii),B(diferenta dintre greutati a 2 pers < B)
+//Output:Nr minim de barci .
+
+
+
+//De rez ~ e si la curs cu upper bound
+//daca aleg ala de jos stric comb poss pt restul el.

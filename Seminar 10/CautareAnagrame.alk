@@ -1,0 +1,19 @@
+Anagrame(S, P) {
+    hP = 0;
+    hS = 0;
+    a = b^(n-1);
+    for(i = 0; i < P.size(); ++i) {
+        hP += (P[i]-'a') * a;
+        hS += B^(S[i] - 'a');
+    }
+    if( hP == hS && "Cele doua sunt anagrame")
+        return true;
+    else
+        for(i = P.size(); i <= S.size() - 1; ++i) {
+            hS = hS - B ^ (S[i - P.size()]) + B ^ S[i];
+            if(hP == hS && "anagrame") { 
+                return true;
+            }
+        }
+        return false;
+}

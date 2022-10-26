@@ -1,0 +1,19 @@
+//In:n,s[],f[]
+
+//Out:Kmax a.i. e i1,..ik diferite a.i f[1]<=S[i2]...f[ik+1]<=S[ik]
+//(cum pun segm ca sa nu se intersecteze)- aleg cel mai mareinterval;
+
+Spectacole(n,s,f)
+{
+    sort(f);
+    sort(s);
+    k=f[0];
+    nr=1;
+    for(i=0;i<n;i++)
+       if(k<s[i])
+      { 
+        k=f[i]
+        nr++
+      }
+      return nr;
+}

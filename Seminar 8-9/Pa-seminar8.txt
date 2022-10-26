@@ -1,0 +1,82 @@
+//1
+//alg naiv pt a gasi un pattern intr un text
+//inputȘ T[0..n-1], P[0..m-1]
+//output: -1, nu se gaseste
+        //i ai T[i...i+|P|]=P
+
+//luam poz cu poz din T si verificam pattern ul
+for(int i=0;i<n-m;i++)
+{
+    for(int k=0;j<m;k++)
+    {
+        if(P[k]!=T[i+k]) 
+            break;
+    }
+    if(k==m) return i;
+    return -1;
+}
+
+//2
+//in pattern sunt doar caractere distincte. varianta mai eficienta?
+Match{
+if(S.size()<P.size()) 
+return -1;
+
+j=0;
+
+for(i=0;i<S.size()-P.size();i++)
+ {
+    if(j<P.size() && S[i]==P[j]) 
+               j++;
+    else 
+      if(j!=P.size() && j!=0) 
+              j=0, i--; //i-- se face pt un i o singura data
+    else 
+        if(j!=0)  
+     return i-j+1;
+ 
+ }
+ return -1;
+}
+//3 longest prefix sufix
+     abbababbabb
+     00012123453
+
+//4
+//alg un frontiera ala de la curs
+computeLPS(S)
+{
+    len=0;
+    lps=[0..S.size()];
+    for(i=1;i<S.size();i++)
+    {
+        len=lps[i-1];
+        while(S[i]!=S[len] && len!=0)
+        {
+            len=lps[len-1];
+        }
+        lps[i]=len+1;
+        if(len==0 && S[i]!=S[0])
+            lps[i]=0;
+    }
+    return lps;
+}
+
+//DE CE E COMPLEXITATEA O(n) PT COMPUTELPS?verificarea merge inainte si pattern ul tot inainte
+
+if(S.size()<P.size()) 
+ return -1;
+j=0;
+for(i=0;i<S.size();i++)
+{
+    if(j<P.size() && S[i]==P[j]) 
+             j++;
+    else
+    if(j!=P.size() && j!=0) 
+              j=lps[j], i--; //i-- se face pt un i o singura data
+    else 
+    if(j!=0) 
+       return i-j+1;
+
+}
+return -1;

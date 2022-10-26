@@ -1,0 +1,27 @@
+//Input:S
+//Output:Kmin a.i sa pot plati S cu k bancnote din mult {1,5,10,50,100};
+
+Plata(S)
+{
+    k=0;
+    b={1,5,10,50,100};
+   for(i=4;i>=0;i++)
+      if(S>b[i])
+      {
+          nr=S/b[i];
+          S=S%b[i];
+          k+=nr;
+      }
+      return k;
+}
+//Demn cu opt dar oricum aleg bancnota mare - pot alege in rest o submultime cu suma 100 dar iese k ul mai mare si iese nasol;
+//Orice suma S:
+//  1 o iau de ma4 ori ca altfel devine 5
+//  5 de max 2 ori ca devine 10
+//10 de max 4 iau ca altfel face 50
+//50 da maxim 1
+// Daca le adun  da 99 iar daca am suma 100 se poate inlocui si devine greedy so sad (orice nr e divizibil cu nr. din fata lui)  
+
+
+//De analizat multimile pt care nu exista astfel de algoritmi Greedy.
+//Combinatie liniara pt seria de bancnote.

@@ -1,0 +1,23 @@
+Cauta(S, P, B) {
+    hP = 0;
+    hS =0;
+    b = 1;
+    for(i = P.size() -1 ; i >= 0; --i) {
+        hP += P[i]*b % M;
+        hS += S[i]*b % M;
+        b *= B % M; 
+    }
+    if(hP == hS) {
+        if(P == S[0..P.size() - 1]) {
+            return true;
+        }
+    }
+    for(i = P.size(); i < S.size(); ++i) {
+        j = i - P.size() + 1;
+        hS = (hS * B - S[i - P.size()] * b + S[i]) % M; // b = B^m
+        if(hS == hP && P == S[j..i]) {
+            return true;
+        }
+    }
+    return false;
+}

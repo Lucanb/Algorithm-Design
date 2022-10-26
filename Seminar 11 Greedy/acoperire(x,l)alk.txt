@@ -1,0 +1,22 @@
+//Input:x[],l
+//Output:k minim a.i exista y1,..,yk a.i oricare xi  apartine X , E j ai yj<xi<yj+1 segmente 
+acoperire(x,l)
+{
+    sort(x);
+    dr=x[0]-1;
+    k=0;
+    for(i=0;i<x.size();i++)
+      if(x[i]>dr)
+      {
+       k++;
+       dr=x[i]+l;
+      }
+      return k;
+}
+ /*
+oricare alegere: 1+opt(x,y)
+greedy 1+opt(x,y)
+ opt(x,y)>=opt(x',y); (orice interval mai mare daca are o acoperire ; acopera si interv mai mic so aleg direct din capat)
+ Deci greedy este optim;
+ */
+ 

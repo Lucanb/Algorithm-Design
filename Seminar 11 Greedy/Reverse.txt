@@ -1,0 +1,7 @@
+//Input: S(111101101111)
+//Output:Nr min op de reverse a.i sirul meu sa fie 101010 sau 010101
+//daca am 2 caract la fel aleg un left care se duce pana la caracterul diferit de  cele 2 si schimb ordinea.
+//cand dau de 00...caut primul 1 cu propr. 11 si fac reverse intre ele
+//cand dau de 11.. caut primul 0 cu propr. 00 a.i sa fac reverse 
+//doar la ult pas nu pot casi 11/00 ca sa fac rev cu primul 1/0
+//nr min de rotatii = nr perechi egale/2.

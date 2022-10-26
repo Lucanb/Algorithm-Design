@@ -1,0 +1,28 @@
+
+//Input:S ; (S[i] is from {0,1})
+//Output:Min number of operation f | f(S[i])=1-S[i] with the propriety that in S doesn t exist a substring 101;
+
+
+GreedyString(S)
+{
+    nrPasi=0;
+    for(i=0;i<S.size();i++)
+      if(S[i]==1 && S[i+1]==[0] && S[i+2]==1)
+              {
+                  S[i+2]=0;
+                  nrPasi=nrPasi+1;
+              }
+  return nrPasi;
+}
+S[11]={1,0,1,0,0,1,0,1,0,1,0,1}
+print(Greedy(S));
+
+//Optimality: For every(101 we change in 100 and we have 1 change)                            
+//                          So opt 1+(S); 
+//              It is optimally because for avery "101" we will change in 100         
+//              other change like 110 or 010 is included in other case for example 0101 / 1101 so we can create other case that must be corrected           
+//             in 100 it can be just 1000 or 1001 so that s why it is optimaly;            
+//                          
+//                         
+                          
+                                  
