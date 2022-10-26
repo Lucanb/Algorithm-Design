@@ -1,0 +1,37 @@
+Parantezare_optima_de_matrici
+
+Input:A1,A2,...An - matrix
+      dim A1 - d1,d2
+      dim A3 - d2,d3
+      ..............
+      dim An - dn,dn+1;
+Output:Ordine de inmultire pentru ca eu sa am un nr optim de operatii.
+
+
+Nr optim de inmultire matrici considerand ult impartire la pasul j
+
+dp[i][j]=min(dp[i][k]+dp[k+1][j]+di*dk*dj)
+  
+
+   i<k<j
+
+InmMat(n,d[])
+{
+    dp[n][n]={0};
+    for(i=n-1;i>=0;i++)
+      for(j=i;j<n;j++)
+      {
+          dp[i][j]=inf;
+         for(k=i;k<j;k++)
+           dp[i][j]=min(dp[i][j],d[i][k]+dp[k+1][j]+d[i]*d[k+1]*d[j+1]);
+        
+      }
+      return (dp[0][n-1]);
+}
+
+Complexity : n*n*n;
+
+Tema: de implementat una din cele 3 pb prez ieri (Cel mai lung subsir comun)
+
+//Dist max impara dintre 2 frunze.
+//Recuperam la o grupa care nu este in acea zi ;

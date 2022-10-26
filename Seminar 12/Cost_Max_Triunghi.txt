@@ -1,0 +1,35 @@
+//Drumul de cost maxim in triunghi de la o val de sus pana la una de jos.
+/*
+                    5
+                7      10
+            4       8      3
+        21    2   2   1      2
+
+Reprezint asa:
+5
+7 10
+4 8 3
+21 2 1 2
+dp[i,j]=drumul pana la (i,j)
+dp[i,j]=m[i][j]+max(dp[i-1][j],dp[i-1],[j-1])
+*/
+//Bordez : pun 0 ca sa inconjor matricea.
+Bordare(m)
+{
+   for(i=0;i<=m.size();i++)
+   m[i][0]=0;
+   for(j=0;j<=m.size();j++)
+   m[0][j]=0;
+}
+Triunghi(m)
+{
+    maxim =0;
+    for(i=1; i<=m.size(); i++)
+      for(j=1; j<=m.size(); j++)
+          m[i][j]=m[i][j]+max(m[i-1][j]+m[i][j-1]);
+    for(j=1;j<=m.size();j++)
+     if(m[m.size()][j]>maxim)
+      maxim=m[m.size()][j];
+  return maxim;
+}
+//Reconstructie : Iau maximul si dupa ma duc in sus si stg/dr(aleg care e maxim dintre ele) pana ajung la primul el.

@@ -1,0 +1,46 @@
+/*
+Tema 13:
+4. Fie S[1...N] un s, ir care cont, ine doar caracterele {0,1}. Peste s, irul S putem aplica urm ̆atoarea
+operat, ie: c ̆autam o aparit, ie a s, irului ‘01’ sau ‘10’ s, i o ˆınlocuim cu ‘--’. Dac ̆a s, irul S nu
+cont, ine aceste dou ̆a s, iruri, nu (mai) putem aplica operat, ia. Care este num ̆arul maxim de
+operat, ii pe care le putem aplica s, irului? De exemplu, pornind de la s, irul init, ial S = 01001
+putem aplica operat, ia de maxim dou ̆a ori: 01001 → 0--01 = 0--01 → 0----.
+
+Rezolvare:
+    
+1.
+Cand dau de 0 -ma uit pe poz anterioara daca am un 0 alaturat ; daca nu este tot 0; 1+ dp[i]=d[i-1]+ 0
+                                                                daca am un astfel de 0 voi avea dp[i]=dp[i-1]
+Daca am 1 ,atunci : daca pe am 0 ianinte o sa am dp[i]=dp[i-1]+1;
+                    daca nu am 0 inainte ; dp[i]=dp[i-1]
+
+Va trebui sa fim atenti sa nu punem de mai multe ori o solutie so va trebui
+sa vedem daca s[i]==s[i-2] (insemna ca deja am puse niste linii) iar atunci dp[i]=dp[i-1];
+
+  Caz de baza : dp[0]=0;(deoarece pt un numar nu voi avea o secv : 01 /10)
+  Solutia va fi dp[n] deoarece el reprezinta nr-ul maximal;
+*/
+
+N=1000;
+for(i=0; i<N; i++)
+dp[i]=0;
+Convert(s,i)
+{
+    if(s[i] == "0")
+    return 0;
+    else
+    return 1;
+}
+Sir(s)
+{
+   dp[0]=0;
+    for(i=1;i<s.size();i++)
+      {
+          if((1-Convert(s,i)) == s[i-1])
+                dp[i] = dp[i-1] + 1;
+            else
+            dp[i]=dp[i-1];
+      }
+   return dp[s.size()];
+}
+print(Sir(s));

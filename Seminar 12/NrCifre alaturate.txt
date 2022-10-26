@@ -1,0 +1,37 @@
+/*
+Input  : n
+Output : Cate n cifre exista fara doi de "0" alaturati
+
+dp[i]=Cate nr de i cifre corecte se termina in 0
+dp1[i]=cate nr de i cifre se termina in 1 orice altcv.
+dp0[i]=dp1[i-1]
+dp1[i]=(dp0[i-1]+dp1[i-1])*9  
+dp0[0]=dp1[0]=0
+dp1[0]=1
+dp1[1]=9
+*/
+
+//sau dp[i]=dp[i-1]*9+dp[i-2]*9
+//dp[1] = 9;
+//dp[2] = 90;
+
+NrZero(n)
+{
+    dp0[ 0 | x from [0..n] ];
+    dp1[ 0 | x from [0..n] ];
+    dp0[1]=1;
+    dp1[1]=9;
+    for(i=2;i<=9;i++)
+     {
+         dp0[i]=dp1[i-1];
+         dp1[i]=(dp0[i-1]+dp1[i-1])*9;
+     }
+     return dp0[n]+dp1[n];
+}
+n=6;
+Print(NrZero(n));
+//Liniar Complexity 
+//Timp Log cu matrici inmultite la putere log (term fibb)
+//Orice rec liniara daca depinde doar de i merge pusa asa de ex
+//Fac matrice n*n pe prima col : a1,...an; apoi a 2 a col 10..0 ..apoi 0..01;
+//Log Complexity.
